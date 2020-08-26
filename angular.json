@@ -106,7 +106,7 @@
           "options": {
             "commands": [
               {
-                "command": "docker build -f apps/client/Dockerfile -t client:$GITHUB_SHA ."
+                "command": "docker build -f apps/client/Dockerfile -t monorepo-nx/client:$GITHUB_SHA ."
               }
             ]
           }
@@ -116,7 +116,7 @@
           "options": {
             "commands": [
               {
-                "command": "docker tag client:$GITHUB_OLD_SHA client:$GITHUB_SHA"
+                "command": "docker tag monorepo-nx/client:$GITHUB_OLD_SHA client:$GITHUB_SHA"
               }
             ]
           }
@@ -126,7 +126,7 @@
           "options": {
             "commands": [
               {
-                "command": "docker push client:$GITHUB_SHA"
+                "command": "docker push monorepo-nx/client:$GITHUB_SHA"
               }
             ]
           }
@@ -228,7 +228,7 @@
           "options": {
             "commands": [
               {
-                "command": "docker build -f apps/api/Dockerfile -t api:$GITHUB_SHA ."
+                "command": "docker build -f apps/api/Dockerfile -t monorepo-nx/api:$GITHUB_SHA ."
               }
             ]
           }
@@ -238,7 +238,7 @@
           "options": {
             "commands": [
               {
-                "command": "docker tag api:$GITHUB_OLD_SHA api:$GITHUB_SHA"
+                "command": "echo monorepo-nx/api:$GITHUB_OLD_SHA api:$GITHUB_SHA"
               }
             ]
           }
@@ -248,7 +248,7 @@
           "options": {
             "commands": [
               {
-                "command": "docker push api:$GITHUB_SHA"
+                "command": "docker push monorepo-nx/api:$GITHUB_SHA"
               }
             ]
           }
