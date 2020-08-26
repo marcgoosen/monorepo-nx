@@ -1,11 +1,11 @@
-name: Wilbur Build
+name: MonorepoNx Build
 
 on:
   push:
     branches:
       - 'master'
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Install system depedencies
