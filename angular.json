@@ -238,7 +238,7 @@
           "options": {
             "commands": [
               {
-                "command": "echo monorepo-nx/api:$GITHUB_OLD_SHA api:$GITHUB_SHA"
+                "command": "echo docker tag monorepo-nx/api:$GITHUB_OLD_SHA api:$GITHUB_SHA"
               }
             ]
           }
