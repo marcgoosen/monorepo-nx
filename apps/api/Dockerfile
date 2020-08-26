@@ -14,6 +14,4 @@ COPY --from=build /usr/src/app/dist/apps/api/ /usr/src/app
 ADD package.json /usr/src/app/package.json
 RUN yarn install --prod --ignore-scripts
 
-EXPOSE 4001
-
 CMD [ "node", "/usr/src/app/main.js" ]
