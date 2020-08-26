@@ -11,5 +11,6 @@ I also supplied a [docker-compose](docker-compose.yml) file, for you to run it l
 docker-compose up --build
 ```
 
-This also showcases the use of [Traefik](https://docs.traefik.io) as proxy/ingress for docker-compose.
+and then open [http://127.0.0.1/](http://127.0.0.1/)
 
+This also showcases the use of [Traefik](https://docs.traefik.io) as proxy/ingress for docker-compose.
