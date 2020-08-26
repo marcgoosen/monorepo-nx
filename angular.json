@@ -180,7 +180,27 @@
           "options": {
             "commands": [
               {
-                "command": "docker build -f apps/api/Dockerfile -t $GITHUB_SHA ."
+                "command": "docker build -f apps/api/Dockerfile -t api:$GITHUB_SHA ."
+              }
+            ]
+          }
+        },
+        "docker-tag": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "docker tag api:$GITHUB_OLD_SHA api:$GITHUB_SHA"
+              }
+            ]
+          }
+        },
+        "docker-push": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "docker push api:$GITHUB_SHA"
               }
             ]
           }

@@ -25,6 +25,9 @@ jobs:
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
+      - name: Set environment
+        run: export GITHUB_OLD_SHA=`git rev-parse HEAD^1`
+
       - uses: actions/cache@v1
         id: yarn-cache
         with:
@@ -35,4 +38,7 @@ jobs:
       - run: yarn install
       - run: yarn affected:lint --base=master~1 --head=master
       - run: yarn affected:test --base=master~1 --head=master
-      - run: yarn affected:build --base=master~1 --head=master  --prod
+      - run: yarn affected:docker-build --base=master~1 --head=master
+      - run: yarn unaffected:docker-tag --base=master~1 --head=master
+        env:
+          GITHUB_OLD_SHA: ${{ env.GITHUB_OLD_SHA }}
