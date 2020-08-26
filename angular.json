@@ -116,7 +116,7 @@
           "options": {
             "commands": [
               {
-                "command": "docker tag monorepo-nx/client:$GITHUB_OLD_SHA client:$GITHUB_SHA"
+                "command": "echo docker tag monorepo-nx/client:$GITHUB_OLD_SHA client:$GITHUB_SHA"
               }
             ]
           }
@@ -126,7 +126,7 @@
           "options": {
             "commands": [
               {
-                "command": "docker push monorepo-nx/client:$GITHUB_SHA"
+                "command": "echo docker push monorepo-nx/client:$GITHUB_SHA"
               }
             ]
           }
