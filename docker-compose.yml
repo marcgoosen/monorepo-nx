@@ -1,0 +1,32 @@
+version: '3'
+services:
+  ingress:
+    image: traefik:1.7-alpine
+    command: --web --docker --docker.domain=monorepo-nx.dev --logLevel=DEBUG
+    depends_on:
+      - api
+      - client
+    ports:
+      - 80:80
+      - 8080:8080
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /dev/null:/traefik.toml
+  api:
+    container_name: api
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    environment:
+      PORT: 80
+    labels:
+      - "traefik.port=80"
+      - "traefik.frontend.rule=PathPrefix:/api/"
+  client:
+    container_name: client
+    build:
+      context: .
+      dockerfile: apps/client/Dockerfile
+    labels:
+      - "traefik.port=80"
+      - "traefik.frontend.rule=PathPrefix:/"
