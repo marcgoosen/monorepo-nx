@@ -4,6 +4,6 @@ import { Message } from '@monorepo-nx/api-interfaces';
 @Injectable()
 export class AppService {
   getData(): Message {
-    return { message: 'Welcome to api2!' };
+    return { message: 'Welcome to api!' };
   }
 }
